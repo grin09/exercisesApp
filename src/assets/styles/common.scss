@@ -1,0 +1,53 @@
+@font-face {
+  font-family: "Avenir";
+  font-weight: 400;
+  src: url("../fonts/AvenirNextCyr-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "Avenir";
+  font-weight: 500;
+  src: url("../fonts/AvenirNextCyr-Medium.woff") format("woff");
+}
+@font-face {
+  font-family: "Avenir";
+  font-weight: 600;
+  src: url("../fonts/AvenirNextCyr-Demi.woff") format("woff");
+}
+@font-face {
+  font-family: "Avenir";
+  font-weight: 700;
+  src: url("../fonts/AvenirNextCyr-Bold.woff") format("woff");
+}
+
+html,
+body {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#app {
+  background-color: #ffffff;
+  padding: 15px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #4a4a4a;
+  margin: 0 0 12px;
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}

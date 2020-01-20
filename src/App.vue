@@ -1,28 +1,52 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view :sets="sets"></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  name: "app",
+  data: function() {
+    return {
+      sets: [
+        {
+          id: 1,
+          title: "Set 1",
+          exercises: [
+            {
+              id: 1,
+              title: "exersice 1",
+              description: "description 1"
+            },
+            {
+              id: 2,
+              title: "exersice 2",
+              description: "description 2"
+            }
+          ]
+        },
+        {
+          id: 2,
+          title: "Set 2",
+          exercises: [
+            {
+              id: 3,
+              title: "exersice 3",
+              description: "description 3"
+            },
+            {
+              id: 4,
+              title: "exersice 4",
+              description: "description 4"
+            }
+          ]
+        }
+      ]
+    };
   }
-}
+};
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss" src="@/assets/styles/common.scss">
 </style>

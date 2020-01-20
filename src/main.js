@@ -1,8 +1,32 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import App from "./App.vue";
 
-Vue.config.productionTip = false
+Vue.use(VueRouter);
+
+const ListSets = () => import("./components/ListSets.vue");
+const Set = () => import("./components/Set.vue");
+
+const routes = [
+  {
+    name: "index",
+    path: "/",
+    component: ListSets
+  },
+  {
+    name: "set",
+    path: "/:id",
+    component: Set
+  }
+];
+
+const router = new VueRouter({
+  routes
+});
+
+Vue.config.productionTip = false;
 
 new Vue({
-  render: h => h(App),
-}).$mount('#app')
+  router,
+  render: h => h(App)
+}).$mount("#app");
