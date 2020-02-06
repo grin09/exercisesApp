@@ -1,16 +1,31 @@
 <template>
   <router-link :to="{ name: 'set', params: { id: set.id } }" class="set-item">
-    <strong class="set-item__caption">{{ set.title }}</strong>
+    <div class="set-item__heading">
+      <strong class="caption">{{ set.title }}</strong>
+      <ButtonIcon
+        :iconType="'remove'"
+        v-on:click.native.prevent.stop="removeSet(set.id)"
+      />
+    </div>
     <p class="set-item__description">{{ set.description }}</p>
   </router-link>
 </template>
 
 <script>
+import ButtonIcon from "./ButtonIcon.vue";
 export default {
+  components: {
+    ButtonIcon
+  },
   props: {
     set: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    removeSet: function(set_id) {
+      this.$root.$emit("remove", set_id);
     }
   }
 };
@@ -30,10 +45,15 @@ export default {
   &:last-child {
     margin: 0;
   }
-  &__caption {
-    display: block;
-    font-size: 16px;
-    color: #4a4a4a;
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    .caption {
+      display: block;
+      font-size: 16px;
+      color: #4a4a4a;
+    }
   }
   &__description {
     display: block;

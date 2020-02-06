@@ -12,11 +12,26 @@ const routes = [
   {
     name: "index",
     path: "/",
+    redirect: "/sets"
+  },
+  {
+    name: "sets",
+    path: "/sets",
     component: ListSets
   },
   {
     name: "set",
-    path: "/:id",
+    path: "/sets/:id",
+    component: Set
+  },
+  {
+    name: "setadd",
+    path: "/sets/add",
+    component: Set
+  },
+  {
+    name: "setedit",
+    path: "/sets/:id/edit",
     component: Set
   }
 ];

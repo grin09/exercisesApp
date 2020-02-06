@@ -1,12 +1,16 @@
 <template>
-  <div class="exercise">
+  <div class="set-item">
     <label class="checkbox">
-      <input v-model="exercise.is_checked" type="checkbox" />
-      <CheckboxMarked v-if="exercise.is_checked" class="checkbox-icon" />
+      <input v-model="setItem.is_checked" type="checkbox" />
+      <CheckboxMarked v-if="setItem.is_checked" class="checkbox-icon" />
       <CheckboxBlankOutline v-else class="checkbox-icon" />
-      <span :class="['checkbox-caption', { checked: exercise.is_checked }]">{{
-        exercise.title
+      <span :class="['checkbox-caption', { checked: setItem.is_checked }]">{{
+        setItem.title
       }}</span>
+      <ButtonIcon
+        :iconType="'remove'"
+        v-on:click.native.prevent.stop="removeSetItem(setItem.id)"
+      />
     </label>
   </div>
 </template>
@@ -14,27 +18,32 @@
 <script>
 import CheckboxMarked from "vue-material-design-icons/CheckboxMarked.vue";
 import CheckboxBlankOutline from "vue-material-design-icons/CheckboxBlankOutline.vue";
+import ButtonIcon from "./ButtonIcon.vue";
 export default {
   components: {
     CheckboxMarked,
-    CheckboxBlankOutline
+    CheckboxBlankOutline,
+    ButtonIcon
   },
   props: {
-    exercise: {
+    setItem: {
       type: Object,
       required: true
     }
   },
-  data: function() {
-    return {
-      is_checked: false
-    };
+  methods: {
+    removeSetItem: function(setItem_id) {
+      this.$root.$emit("removeSetItem", {
+        external_id: this.$route.params.id,
+        internal_id: setItem_id
+      });
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.exercise {
+.set-item {
   padding: 10px;
   margin: 0 0 15px;
   border-radius: 4px;
@@ -61,10 +70,14 @@ export default {
       font-size: 16px;
       color: #4a4a4a;
       line-height: 1;
+      margin: 0 5px 0 0;
       &.checked {
         text-decoration: line-through;
       }
     }
+  }
+  .ctrl-btn {
+    margin: 0 0 0 auto;
   }
 }
 </style>
