@@ -57,6 +57,62 @@ body {
     }
   }
   &.with-description {
+    margin: 0 0 15px;
+  }
+  &.not-mainpage {
+    .title-icon {
+      width: 36px;
+      min-width: 36px;
+      height: 36px;
+      font-size: 26px;
+      & > svg {
+        bottom: 50%;
+        transform: translateY(50%);
+      }
+    }
+  }
+}
+
+.btn-std {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 44px;
+  background-color: #4caf50;
+  border: 0;
+  border-radius: 3px;
+  outline: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin: 20px auto 0;
+  cursor: pointer;
+  &:hover {
+    filter: brightness(1.05);
+  }
+  &:active {
+    filter: brightness(0.95);
+  }
+}
+
+.form-field {
+  display: block;
+  margin: 0 0 10px;
+  &__caption {
+    display: block;
+    font-size: 14px;
     margin: 0 0 5px;
+  }
+  input {
+    width: 100%;
+    height: 44px;
+    outline: 0;
+    border: 1px solid #d8d8d8;
+    border-radius: 3px;
+    padding: 0 10px;
+    font-size: 16px;
   }
 }

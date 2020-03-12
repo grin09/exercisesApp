@@ -6,7 +6,9 @@ import "vue-material-design-icons/styles.css";
 Vue.use(VueRouter);
 
 const ListSets = () => import("./components/ListSets.vue");
+const AddList = () => import("./components/AddList.vue");
 const Set = () => import("./components/Set.vue");
+const AddItem = () => import("./components/AddItem.vue");
 
 const routes = [
   {
@@ -20,19 +22,19 @@ const routes = [
     component: ListSets
   },
   {
+    name: "sets-add",
+    path: "/sets-add",
+    component: AddList
+  },
+  {
     name: "set",
     path: "/sets/:id",
     component: Set
   },
   {
-    name: "setadd",
-    path: "/sets/add",
-    component: Set
-  },
-  {
-    name: "setedit",
-    path: "/sets/:id/edit",
-    component: Set
+    name: "set-add",
+    path: "/sets/:id/add",
+    component: AddItem
   }
 ];
 
